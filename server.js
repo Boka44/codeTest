@@ -9,7 +9,6 @@ app.use(bodyParser.json());
 
 app.post('/', function(req, res){
 	let startDate = new Date(req.body.startDate);
-	let startDateDay
 	let endDate = new Date(startDate);
 	let numberOfDays = req.body.numberOfDays;
 	endDate.setDate(startDate.getDate() + numberOfDays); 
@@ -39,8 +38,12 @@ app.post('/', function(req, res){
 	    }
 	   
  	}
+ 	if(totalSaved === 0) {
+		res.send("Date is in incorrect format, try one of these options: March 15 2018 || 5/15/2018 || 2018-05-15 || 15 March 2018. <br> Note: Money is not saved on Saturdays or Sundays, be sure to include one weekday to see a result.")
+	} else{
+		res.send('$'+ totalSaved.toFixed(2));
+	}
  	
- 	res.send('$'+ totalSaved.toFixed(2));
 })
 
 app.listen(PORT, function() {
