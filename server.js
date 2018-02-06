@@ -15,7 +15,6 @@ app.post('/', function(req, res){
 
 	if(numberOfDays < 1 || !Number.isInteger(numberOfDays)) {
 		res.send("Please put a number greater than zero for the number of days.")
-		res.end()
 	} else {
 
 		let totalSaved = 0;
