@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 8080;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.post('/', function(req, res){
+app.get('/', function(req, res){
 	let startDate = new Date(req.body.startDate);
 	let endDate = new Date(startDate);
 	let numberOfDays = req.body.numberOfDays;
